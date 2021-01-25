@@ -5,17 +5,18 @@ import moment from "moment";
 import "./App.css";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
+import Modal from './components/Modal';
+
+
 const localizer = momentLocalizer(moment);
 
 class App extends Component {
   state = {
     events: [
       {
-        start: moment().toDate(),
-        end: moment()
-          .add(1, "days")
-          .toDate(),
-        title: "Some title"
+        start: '2021-01-01',
+        end: '2021-01-02',
+        title: "Entrega"
       }
     ]
   };
@@ -30,7 +31,11 @@ class App extends Component {
           events={this.state.events}
           style={{ height: "100vh" }}
         />
+
+        <Modal />
       </div>
+
+      
     );
   }
 }
