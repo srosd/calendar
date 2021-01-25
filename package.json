@@ -6,6 +6,7 @@
     "moment": "2.24.0",
     "react": "16.13.1",
     "react-big-calendar": "0.24.1",
+    "react-datepicker": "^3.4.1",
     "react-dom": "16.13.1",
     "react-scripts": "3.4.1"
   },
