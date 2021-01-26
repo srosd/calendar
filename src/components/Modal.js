@@ -1,10 +1,12 @@
 import React from 'react';
 import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css'
+import 'react-datepicker/dist/react-datepicker.css';
+
+//Arreglo utilizado para iterar sobre él para crear las opciones de los selects del formulario
+// sin tener que picar el código de todas las opciones
+const hours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23];
 
 class Modal extends React.Component {
-
-    
 
     
     render(){
@@ -28,10 +30,42 @@ class Modal extends React.Component {
                                     />
                                 <br />
                                 <label htmlFor="start">Start:</label>
-                                <DatePicker selected={this.props.start} onChange={this.props.onChangeStart}/>
+                                {/* DatePicker es un componente de React utilizado para 
+                                manejar fechas en formularios. Importado en la línea 2 */}
+                                <DatePicker 
+                                    selected={this.props.start} 
+                                    onChange={this.props.onChangeStart}
+                                    dateFormat="dd/MM/yyyy" 
+                                    />
                                 <br />
                                 <label htmlFor="start">End:</label>
-                                <DatePicker selected={this.props.end} onChange={this.props.onChangeEnd}/>
+                                <DatePicker 
+                                    selected={this.props.end} 
+                                    onChange={this.props.onChangeEnd}
+                                    dateFormat="dd/MM/yyyy"    
+                                    />
+                                <br />
+                                <label htmlFor="hours">Time:</label>
+                                <select name="hours" defaultValue="**" onChange={this.props.onChangeTime}>
+                                <option id="select-hour" disabled value="**">Selecciona la hora</option>
+                                {/* los maps de las siguientes lineas son para generar las etiquetas option
+                                de los select */}
+                                {
+                                    hours.map((hour, i)=>{
+                                        return <option key={i} value={hour}>{hour}</option>
+                                    })
+                                }
+                                </select>
+                                <br />
+                                <label htmlFor="duration">Duration (h):</label>
+                                <select name="duration" defaultValue="**" onChange={this.props.onChangeDuration}>
+                                <option id="select-duration" disabled value="**">Selecciona la duración</option>
+                                {
+                                    hours.map((hour, i)=>{
+                                        return <option key={i} value={hour + 1}>{hour + 1}</option>
+                                    })
+                                }
+                                </select>
                                 <hr />
                                 <div className="text-end">
                                     <button type="button" className="btn btn-danger cancel-btn" data-bs-dismiss="modal" >Cancel</button>
