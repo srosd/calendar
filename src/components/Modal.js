@@ -38,7 +38,7 @@ class Modal extends React.Component {
                                     dateFormat="dd/MM/yyyy" 
                                     />
                                 <br />
-                                
+                                  
                                 <label htmlFor="start">End:</label>
                                 <DatePicker 
                                     selected={this.props.end} 
