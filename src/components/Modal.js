@@ -30,8 +30,10 @@ class Modal extends React.Component {
                                     />
                                 <br />
                                 <label htmlFor="start"> Start:</label>
+
                                 {/* DatePicker es un componente de React utilizado para 
                                 manejar fechas en formularios. Importado en la línea 2 */}
+                                
                                 <DatePicker 
                                     selected={this.props.start} 
                                     onChange={this.props.onChangeStart}
