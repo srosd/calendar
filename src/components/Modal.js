@@ -28,6 +28,7 @@ class Modal extends React.Component {
                                     value={this.props.newEvent.title}
                                     onChange={(e)=>this.props.onChangeTitle(e)}
                                     />
+                                    
                                 <br />
                                 <label htmlFor="start"> Start:</label>
 
